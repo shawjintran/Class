@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shaw.online.model.vod.Teacher;
 import com.shaw.online.vo.vod.TeacherQueryVo;
+import com.shaw.service_util.exception.onlineException;
 import com.shaw.service_util.result.Result;
 import com.shaw.service_vod.service.TeacherService;
 import io.swagger.annotations.Api;
@@ -39,32 +40,8 @@ public class TeacherController {
 			@PathVariable Long limit,
 			@ApiParam(name = "teacherVo", value = "查询对象", required = false)
 			@RequestBody(required = false) TeacherQueryVo teacherQueryVo) {
-
-		//创建page对象，传递当前页和每页记录数
-		Page<Teacher> pageParam = new Page<>(page, limit);
-		//获取条件值 前端只根据此方法进行添加
-		String name = teacherQueryVo.getName();//讲师名称
-		Integer level = teacherQueryVo.getLevel();//讲师级别
-
-		String joinDateBegin = teacherQueryVo.getJoinDateBegin();//开始时间
-		String joinDateEnd = teacherQueryVo.getJoinDateEnd();//结束时间
-		//封装条件
-		QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
-		if(!ObjectUtils.isEmpty(name)) {
-			wrapper.like("name",name);
-		}
-		if(!ObjectUtils.isEmpty(level)) {
-			wrapper.eq("level",level);
-		}
-		if(!ObjectUtils.isEmpty(joinDateBegin)) {
-			wrapper.ge("join_date",joinDateBegin);
-		}
-		if(!ObjectUtils.isEmpty(joinDateEnd)) {
-			wrapper.le("join_date",joinDateEnd);
-		}
 		//调用方法得到分页查询结果
-		IPage<Teacher> pageModel = teacherService.page(pageParam, wrapper);
-
+		Page<Teacher> pageModel=teacherService.DividePage(page,limit,teacherQueryVo);
 		return Result.ok(pageModel);
 	}
 	@PostMapping("/add")

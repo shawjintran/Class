@@ -1,7 +1,12 @@
 package com.shaw.service_vod.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.shaw.online.model.vod.Teacher;
+import com.shaw.online.vo.vod.TeacherQueryVo;
+import io.swagger.annotations.ApiParam;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
 * @author sky
