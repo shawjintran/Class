@@ -22,7 +22,7 @@ public class Result<T> {
 	//成功方法
 	public static<T> Result<T> ok(T data){
 		Result<T> result = new Result<>();
-		result.setCode(200)
+		result.setCode(20000)
 				.setMessage("Success");
 		if (data==null)
 			return result;
@@ -31,7 +31,7 @@ public class Result<T> {
 	//失败方法
 	public static<T> Result<T> fail(T data){
 		Result<T> result = new Result<>();
-		result.setCode(200)
+		result.setCode(20001)
 				.setMessage("Flop");
 		if (data==null)
 			return result;

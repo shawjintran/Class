@@ -18,11 +18,13 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
 @Api(tags = "讲师操作")
 @RequestMapping("/admin/vod/teacher")
+@CrossOrigin
 public class TeacherController {
 	@Autowired
 	private TeacherService teacherService;
@@ -45,15 +47,25 @@ public class TeacherController {
 		return Result.ok(pageModel);
 	}
 	@PostMapping("/add")
-	public Result add(Teacher teacher){
+	public Result add(@RequestBody Teacher teacher){
 		boolean save = teacherService.save(teacher);
 		if (save)
 			return Result.ok(null);
 		else
 			return Result.fail(null);
 	}
+	@GetMapping("/get/{id}")
+	public Result getOne(@PathVariable Long id){
+		if(ObjectUtils.isEmpty(id))
+			return Result.fail(null).setMessage("id输入为空");
+		Teacher teacher = teacherService.getById(id);
+		if(teacher==null)
+			return Result.fail(null).setMessage("未查询到");
+		else
+			return Result.ok(teacher);
+	}
 	@PostMapping("/update")
-	public Result update(Teacher teacher){
+	public Result update(@RequestBody Teacher teacher){
 		boolean is = teacherService.updateById(teacher);
 		if(is)
 			return Result.ok(null);

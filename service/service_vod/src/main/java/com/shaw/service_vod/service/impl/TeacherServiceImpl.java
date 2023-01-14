@@ -44,6 +44,7 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher>
 		if(!ObjectUtils.isEmpty(joinDateEnd)) {
 			wrapper.le("join_date",joinDateEnd);
 		}
+		System.out.println(this.page(pageParam, wrapper).getTotal());
 		return this.page(pageParam, wrapper);
 	}
 }
