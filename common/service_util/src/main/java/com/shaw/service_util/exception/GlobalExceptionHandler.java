@@ -1,6 +1,6 @@
 package com.shaw.service_util.exception;
 
-import com.shaw.service_util.result.Result;
+import com.shaw.service_util.normal.Result;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,7 +11,7 @@ public class GlobalExceptionHandler {
 	//
 	@ExceptionHandler(Exception.class)
 	@ResponseBody
-	public Result error( Exception e){
+	public Result error(Exception e){
 		e.printStackTrace();
 		return Result.fail(null).setMessage("global exception");
 	}

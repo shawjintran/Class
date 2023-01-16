@@ -1,11 +1,8 @@
-package com.shaw.service_util.result;
+package com.shaw.service_util.normal;
 
 
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.apache.poi.ss.formula.functions.T;
-
-import javax.validation.constraints.AssertTrue;
 
 @Data
 @Accessors(chain = true)

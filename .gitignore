@@ -30,3 +30,4 @@ build/
 ### VS Code ###
 .vscode/
 node_modules/
+/vue-template/1/node_modules/.bin/**

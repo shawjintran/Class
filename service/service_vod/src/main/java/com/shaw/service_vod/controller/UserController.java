@@ -1,7 +1,6 @@
 package com.shaw.service_vod.controller;
 
-import com.shaw.online.model.vod.Teacher;
-import com.shaw.service_util.result.Result;
+import com.shaw.service_util.normal.Result;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 

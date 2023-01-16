@@ -1,13 +1,10 @@
 package com.shaw.service_vod.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shaw.online.model.vod.Teacher;
 import com.shaw.online.vo.vod.TeacherQueryVo;
-import com.shaw.service_util.exception.onlineException;
-import com.shaw.service_util.result.Result;
+import com.shaw.service_util.normal.Result;
 import com.shaw.service_vod.service.TeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,10 +12,8 @@ import io.swagger.annotations.ApiParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController

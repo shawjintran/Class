@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class onlineException extends RuntimeException{
-	private Integer code;
+	private Integer code ;
 	private String Mes;
 }

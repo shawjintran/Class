@@ -109,14 +109,18 @@ export const constantRoutes = [
   // },
 
   {
-    path: '/form',
+    path: '/subject',
     component: Layout,
+    redirect: '/subject/list',
+    name: '课程分类管理',
+    alwaysShow: true,
+    meta: { title: '课程分类管理', icon: 'example' },
     children: [
       {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        path: 'list',
+        name: '课程分类列表',
+        component: () => import('@/views/vod/subject/list'),
+        meta: { title: '课程分类列表', icon: 'table' }
       }
     ]
   },
