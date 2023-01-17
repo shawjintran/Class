@@ -39,6 +39,12 @@ export default {
       data:teacher
     })
   },
+  list() {
+    return request({
+      url: `${api_name}/all`,
+      method: `get`
+    })
+  },
   updateTeacher(teacher){
     return request({
       url:`${api_name}/update`,

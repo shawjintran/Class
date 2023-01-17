@@ -86,28 +86,6 @@ export const constantRoutes = [
       }
     ]
   },
-  // {
-  //   path: '/example',
-  //   component: Layout,
-  //   redirect: '/example/table',
-  //   name: 'Example',
-  //   meta: { title: 'Example', icon: 'el-icon-s-help' },
-  //   children: [
-  //     {
-  //       path: 'table',
-  //       name: 'Table',
-  //       component: () => import('@/views/table/index'),
-  //       meta: { title: 'Table', icon: 'table' }
-  //     },
-  //     {
-  //       path: 'tree',
-  //       name: 'Tree',
-  //       component: () => import('@/views/tree/index'),
-  //       meta: { title: 'Tree', icon: 'tree' }
-  //     }
-  //   ]
-  // },
-
   {
     path: '/subject',
     component: Layout,
@@ -126,60 +104,49 @@ export const constantRoutes = [
   },
 
   {
-    path: '/nested',
+    path: '/vodcourse',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    redirect: '/vodcourse/course/list',
+    name: 'VodCourse',
     meta: {
-      title: 'Nested',
-      icon: 'nested'
+      title: '点播管理',
+      icon: 'el-icon-bank-card'
     },
+    alwaysShow: true,
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'course/list',
+        name: 'CourseList',
+        component: () => import('@/views/vod/course/list'),
+        meta: { title: '课程列表' }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
+        path: 'course/info',
+        name: 'CourseInfo',
+        component: () => import('@/views/vod/course/form'),
+        meta: { title: '发布课程' },
+        hidden: true
+      },
+      {
+        path: 'course/info/:id',
+        name: 'CourseInfoEdit',
+        component: () => import('@/views/vod/course/form'),
+        meta: { title: '编辑课程' },
+        hidden: true
+      },
+      {
+        path: 'course/chapter/:id',
+        name: 'CourseChapterEdit',
+        component: () => import('@/views/vod/course/form'),
+        meta: { title: '编辑大纲' },
+        hidden: true
+      },
+      {
+        path: 'course/chart/:id',
+        name: 'CourseChart',
+        component: () => import('@/views/vod/course/chart'),
+        meta: { title: '课程统计' },
+        hidden: true
       }
     ]
   },

@@ -3,6 +3,9 @@ package com.shaw.service_vod.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.shaw.online.model.vod.Chapter;
+import com.shaw.online.vo.vod.ChapterVo;
+
+import java.util.List;
 
 /**
 * @author sky
@@ -11,4 +14,5 @@ import com.shaw.online.model.vod.Chapter;
 */
 public interface ChapterService extends IService<Chapter> {
 
+	List<ChapterVo> getNestedTreeList(Long courseId);
 }
