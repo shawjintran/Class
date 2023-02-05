@@ -195,12 +195,15 @@
     },
     // 修改
     updateData() {
-      courseApi.updateCourseInfoById(this.courseInfo).then(response => {
+      courseApi.updateCourseInfoById(this.courseInfo)
+      .then(response => {
         this.$message.success(response.message)
-        debugger
-        this.$parent.courseId = response.data // 获取courseId
-        this.$parent.active = 1 // 下一步
         
+        this.$parent.courseId = response.data // 获取courseId
+        console.log(this.$parent)
+        this.$parent.active = 1 // 下一步
+      }).catch(e=>{
+        this.saveBtnDisabled=false
       })
     },
     }

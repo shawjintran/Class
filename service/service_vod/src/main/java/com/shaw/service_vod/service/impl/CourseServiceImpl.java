@@ -9,17 +9,16 @@ import com.shaw.online.model.vod.CourseDescription;
 import com.shaw.online.model.vod.Subject;
 import com.shaw.online.model.vod.Teacher;
 import com.shaw.online.vo.vod.CourseFormVo;
+import com.shaw.online.vo.vod.CoursePublishVo;
 import com.shaw.online.vo.vod.CourseQueryVo;
-import com.shaw.service_vod.service.CourseDescriptionService;
-import com.shaw.service_vod.service.CourseService;
+import com.shaw.service_vod.service.*;
 import com.shaw.service_vod.mapper.CourseMapper;
-import com.shaw.service_vod.service.SubjectService;
-import com.shaw.service_vod.service.TeacherService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +37,10 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course>
 	SubjectService subjectService;
 	@Autowired
 	CourseDescriptionService descriptionService;
+	@Autowired
+	VideoService videoService;
+	@Autowired
+	ChapterService chapterService;
 	@Override
 	public Map<String, Object> findPage(Page<Course> pageParam, CourseQueryVo courseQueryVo) {
 		QueryWrapper<Course> wrapper = new QueryWrapper<>();
@@ -112,9 +115,43 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course>
 		baseMapper.updateById(course);
 		//修改课程详情信息
 		CourseDescription courseDescription = descriptionService.getById(course.getId());
+		if (courseDescription==null)
+		{
+			courseDescription=new CourseDescription();
+			courseDescription.setCourseId(course.getId());
+			courseDescription.setDescription(courseFormVo.getDescription());
+			descriptionService.save(courseDescription);
+			return;
+		}
 		courseDescription.setDescription(courseFormVo.getDescription());
 		// courseDescription.setId(course.getId());
 		descriptionService.updateById(courseDescription);
+	}
+
+	@Override
+	public boolean publishCourseById(Long id) {
+		Course course = new Course();
+		course.setId(id);
+		course.setPublishTime(new Date());
+		course.setStatus(1);
+		return this.updateById(course);
+	}
+
+	@Override
+	public CoursePublishVo getCoursePublishVo(Long id) {
+		return baseMapper.selectCoursePublishVoById(id);
+	}
+
+	@Override
+	public void removeCourseId(Long id) {
+		//根据课程id删除小节
+		videoService.removeVideoByCourseId(id);
+		//根据课程id删除章节
+		chapterService.removeChapterByCourseId(id);
+		//根据课程id删除描述
+		descriptionService.removeById(id);
+		//根据课程id删除课程
+		baseMapper.deleteById(id);
 	}
 
 	//获取讲师和分类名称

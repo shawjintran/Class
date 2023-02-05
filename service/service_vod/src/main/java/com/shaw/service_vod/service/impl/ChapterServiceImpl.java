@@ -54,6 +54,19 @@ public class ChapterServiceImpl extends ServiceImpl<ChapterMapper, Chapter>
 		});
 		return chapterVos;
 	}
+
+	@Override
+	public void removeChapterByCourseId(Long id) {
+		QueryWrapper<Chapter> wrapper = new QueryWrapper<>();
+		wrapper.eq("course_id",id);
+		videoService.removeVideoByCourseId(id);
+		baseMapper.delete(wrapper);
+	}
+	public void removeChapterById(Long id){
+		Chapter chapter = baseMapper.selectById(id);
+		videoService.removeVideoByChapterId(id,chapter.getCourseId());
+		baseMapper.deleteById(id);
+	}
 }
 
 

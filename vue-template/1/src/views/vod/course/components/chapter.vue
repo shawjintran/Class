@@ -71,6 +71,7 @@ export default {
   methods: {
     // 获取章节小节数据
     fetchNodeList() {
+      console.log(this.$parent)
       chapterApi.getNestedTreeList(this.$parent.courseId).then(response => {
         this.chapterList = response.data
       })

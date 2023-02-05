@@ -17,8 +17,7 @@ import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.UUID;
 
 @Service
@@ -70,4 +69,22 @@ public class FileServiceImpl implements FileService {
 			return null;
 		}
 }
+
+	@Override
+	public void removeVideo(String videoSource) {
+
+		File file = new File(videoSource);
+		if(!file.exists())
+			return;
+		file.delete();
+	}
+
+	@Override
+	public String uploadVideo(MultipartFile file, String originalFilename) throws IOException {
+		String video_path="D:\\CodeOfJava\\TxClass\\video\\"+originalFilename;
+		file.transferTo(new File(video_path));
+		return video_path;
+	}
+
+
 }

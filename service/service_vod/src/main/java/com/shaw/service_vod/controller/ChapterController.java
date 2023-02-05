@@ -54,7 +54,7 @@ public class ChapterController {
 	//5 删除章节
 	@DeleteMapping("remove/{id}")
 	public Result remove(@PathVariable Long id) {
-		chapterService.removeById(id);
+		chapterService.removeChapterById(id);
 		return Result.ok(null);
 	}
 }

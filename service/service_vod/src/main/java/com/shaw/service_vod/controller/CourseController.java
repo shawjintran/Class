@@ -3,6 +3,7 @@ package com.shaw.service_vod.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shaw.online.model.vod.Course;
 import com.shaw.online.vo.vod.CourseFormVo;
+import com.shaw.online.vo.vod.CoursePublishVo;
 import com.shaw.online.vo.vod.CourseQueryVo;
 import com.shaw.service_util.normal.Result;
 import com.shaw.service_vod.service.CourseService;
@@ -52,4 +53,30 @@ public class CourseController {
 		courseService.updateCourseById(courseFormVo);
 		return Result.ok(courseFormVo.getId());
 	}
+	@ApiOperation("根据id获取课程发布信息")
+	@GetMapping("getCoursePublishVo/{id}")
+	public Result getCoursePublishVoById(
+			@ApiParam(value = "课程ID", required = true)
+			@PathVariable Long id){
+
+		CoursePublishVo coursePublishVo = courseService.getCoursePublishVo(id);
+		return Result.ok(coursePublishVo);
+	}
+
+	@ApiOperation("根据id发布课程")
+	@PutMapping("publishCourseById/{id}")
+	public Result publishCourseById(
+			@ApiParam(value = "课程ID", required = true)
+			@PathVariable Long id){
+
+		boolean result = courseService.publishCourseById(id);
+		return Result.ok(null);
+	}
+
+	@DeleteMapping("remove/{id}")
+	public Result deleteCourseById(@PathVariable Long id){
+		courseService.removeCourseId(id);
+		return Result.ok(null);
+	}
+
 }

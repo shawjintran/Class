@@ -3,6 +3,7 @@ package com.shaw.service_vod.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.shaw.online.model.vod.Course;
+import com.shaw.online.vo.vod.CoursePublishVo;
 
 /**
 * @author sky
@@ -12,6 +13,7 @@ import com.shaw.online.model.vod.Course;
 */
 public interface CourseMapper extends BaseMapper<Course> {
 
+	CoursePublishVo selectCoursePublishVoById(Long id);
 }
 
 

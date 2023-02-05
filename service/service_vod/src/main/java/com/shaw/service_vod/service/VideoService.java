@@ -10,4 +10,9 @@ import com.shaw.online.model.vod.Video;
 */
 public interface VideoService extends IService<Video> {
 
+	void removeVideoByCourseId(Long id);
+
+	void removeVideoById(Long id);
+
+	void removeVideoByChapterId(Long chapter_id,Long course_id);
 }

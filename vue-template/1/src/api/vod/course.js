@@ -30,4 +30,23 @@ export default {
       data: courseInfo
     })
   },
+  getCoursePublishById(id) {
+    return request({
+      url: `${api_name}/getCoursePublishVo/${id}`,
+      method: 'get'
+    })
+ },
+ //发布课程  
+ publishCourseById(id) {
+    return request({
+      url: `${api_name}/publishCourseById/${id}`,
+      method: 'put'
+    })
+ },
+ removeById(id) {
+  return request({
+    url: `${api_name}/remove/${id}`,
+    method: 'delete'
+  })
+},
 }
