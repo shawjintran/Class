@@ -78,7 +78,7 @@
   export default {
     data() {
       return {
-        BASE_API: 'http://localhost:8301',
+        BASE_API: 'http://localhost:8333',
         saveBtnDisabled: false, // 按钮是否禁用
         courseInfo: {// 表单数据
           price: 0,

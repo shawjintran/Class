@@ -5,7 +5,6 @@ import com.shaw.online.model.vod.VideoVisitor;
 import com.shaw.online.vo.vod.VideoVisitorCountVo;
 import com.shaw.service_vod.service.VideoVisitorService;
 import com.shaw.service_vod.mapper.VideoVisitorMapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

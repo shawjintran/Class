@@ -3,16 +3,13 @@ package com.shaw.service_vod.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
-import com.shaw.online.model.vod.Chapter;
 import com.shaw.online.model.vod.Video;
 import com.shaw.service_vod.service.FileService;
 import com.shaw.service_vod.service.VideoService;
 import com.shaw.service_vod.mapper.VideoMapper;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 

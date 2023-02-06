@@ -57,7 +57,7 @@ export default{
                 sort: 0,
                 level: 1
             },
-            BASE_API:'http://localhost:8301'
+            BASE_API:'http://localhost:8333'
         }
     },
     created(){

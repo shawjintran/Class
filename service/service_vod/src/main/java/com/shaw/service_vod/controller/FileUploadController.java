@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/admin/vod/file")
-@CrossOrigin
+// @CrossOrigin
 public class FileUploadController {
 	@Autowired
 	FileService fileService;

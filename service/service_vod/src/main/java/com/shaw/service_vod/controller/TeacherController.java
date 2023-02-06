@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @Api(tags = "讲师操作")
 @RequestMapping("/admin/vod/teacher")
-@CrossOrigin
+// @CrossOrigin
 public class TeacherController {
 	@Autowired
 	private TeacherService teacherService;

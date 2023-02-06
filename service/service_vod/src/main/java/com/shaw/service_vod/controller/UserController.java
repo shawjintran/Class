@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/admin/vod/user")
-@CrossOrigin
+// @CrossOrigin
 @Api(tags = "User about")
 public class UserController {
 	@PostMapping("/login")

@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 @Api(tags = "课程小结（课时）")
 @RestController
 @RequestMapping(value="/admin/vod/video/")
-@CrossOrigin
+// @CrossOrigin
 public class VideoController {
 
 	@Autowired
