@@ -1,6 +1,11 @@
 package com.shaw.service_activity.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.shaw.online.model.activity.CouponInfo;
+import com.shaw.online.model.activity.CouponUse;
+import com.shaw.online.vo.activity.CouponUseQueryVo;
 
 /**
 * @author sky
@@ -9,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface CouponInfoService extends IService<CouponInfo> {
 
+	IPage<CouponUse> selectCouponUsePage(Page<CouponUse> pageParam, CouponUseQueryVo couponUseQueryVo);
 }

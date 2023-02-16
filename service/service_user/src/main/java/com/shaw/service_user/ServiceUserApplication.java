@@ -1,4 +1,4 @@
-package com.shaw.service_activity;
+package com.shaw.service_user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,9 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "com.shaw")
-public class serviceactivityApplication {
+public class ServiceUserApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(serviceactivityApplication.class);
+		SpringApplication.run(ServiceUserApplication.class, args);
 	}
+
 }

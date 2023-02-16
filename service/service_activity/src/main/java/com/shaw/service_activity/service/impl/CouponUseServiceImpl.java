@@ -1,6 +1,7 @@
 package com.shaw.service_activity.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.shaw.online.model.activity.CouponUse;
 import com.shaw.service_activity.service.CouponUseService;
 import com.shaw.service_activity.mapper.CouponUseMapper;
 import org.springframework.stereotype.Service;

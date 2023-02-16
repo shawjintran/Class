@@ -1,6 +1,7 @@
 package com.shaw.service_activity.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.shaw.online.model.activity.CouponUse;
 
 /**
 * @author sky
